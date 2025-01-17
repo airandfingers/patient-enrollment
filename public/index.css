@@ -11,3 +11,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+th, td {
+  border: 1px solid black;
+  padding: 1rem;
+}
+
+form > div {
+  margin: 1rem;
+}
+
+.patient-list {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+}
+
+.patient-list > button {
+  align-self: flex-end;
+}

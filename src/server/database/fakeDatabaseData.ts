@@ -1,6 +1,6 @@
 import type { Patient, PatientRiskProfile } from "../types";
 
-export const patients = [
+export const patients: Patient[] = [
   {
     id: 1001,
     name: "John Doe",
@@ -11,7 +11,7 @@ export const patients = [
     name: "Jane Doe",
     enrollmentStatus: "Insurance Eligibility Verified",
   }
-] satisfies Patient[];
+];
 
 export const patientRiskProfiles = [
   {

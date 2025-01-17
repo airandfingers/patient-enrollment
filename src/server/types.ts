@@ -1,4 +1,4 @@
-type EnrollmentStatus =
+export type EnrollmentStatus =
   "Prospect"
   | "Insurance Eligibility Verified"
   | "Enrolled Contract Sent"

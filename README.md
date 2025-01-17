@@ -1,5 +1,30 @@
 # Pine Park Health Coding Challenge
 
+## Aaron's Notes
+All listed tasks complete!
+
+Changes to check with the team:
+1. Moved `src/client/index.css` to `public/index.css` and added a `<link>` to it from `index.html`, so that styles would actually apply
+2. Deleted `server.js` (looks like a potential alternative server using GraphQL, but currently unused)
+3. Defined an `/add_patient` page to contain the patient form, rather than adding this to `/patients` in some way. The page redirects to `/patients` once the form is submitted and it receives a response.
+
+Some of the tasks involved in making this production-ready:
+1. Add a loading state and error handling for API requests, both fetching and inserting.
+
+2. Integrate with an actual database, reworking `helpers.ts` accordingly.
+
+3. Add better handling for future null coefficient values (prevent their insertion, and log their existence once when patient risk profiles are fetched).
+
+4. Expand to handle actual enrollment (or other) workflows:
+
+    1. Replace `/add_patients` form page with a form on `/patients`, updating the table without requiring a redirect/refresh
+
+    2. Allow inline editing of patients, to update their enrollment status and/or remove patients that were added by mistake
+
+    3. If performance problems are observed, address them, e.g. with pagination, better memoization/caching of RAF scores
+
+    4. Raise the possibility of bulk-enrolling patients, e.g. by importing a CSV listing their names, checking boxes next to their names, and submitting to add many at once.
+
 ## Coding Exercise
 
 A simple React app with an Express.js server has been setup to help you get started. You should fork this repo and

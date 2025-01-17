@@ -1,5 +1,5 @@
 import { patients, patientRiskProfiles } from "./fakeDatabaseData";
-import type { Patient, PatientRiskProfile } from "../types";
+import type { EnrollmentStatus, Patient, PatientRiskProfile } from "../types";
 
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 
@@ -18,7 +18,20 @@ const patientRiskProfilesById = patientRiskProfiles.reduce((acc: {[patientId: nu
 
 export async function getPatients() {
   await delay(500);
+  console.log({ patientsById})
   return Object.values(patientsById);
+}
+
+let maxPatientId = Math.max(...patients.map((patient) => patient.id));
+export async function addPatient(name: string, enrollmentStatus: EnrollmentStatus): Promise<Patient> {
+  await delay(500);
+  const newPatientId = ++maxPatientId;
+  const newPatient = { id: newPatientId, name, enrollmentStatus };
+  // Add to in-memory datastore and fake database
+  patientsById[newPatientId] = newPatient;
+  patients.push(newPatient);
+  console.log({ newPatient})
+  return newPatient;
 }
 
 export async function getPatientRiskProfiles() {
