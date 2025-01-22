@@ -36,5 +36,5 @@ export async function addPatient(name: string, enrollmentStatus: EnrollmentStatu
 
 export async function getPatientRiskProfiles() {
   await delay(500);
-  return Object.values(patientRiskProfilesById).flat();
+  return patientRiskProfiles.filter((profile) => !profile.deletedAt);
 }
